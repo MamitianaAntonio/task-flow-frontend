@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+/*all variable*/
+:root {
+  --color-primary: #3B82F6;
+  --color-secondary: #E081C1;
+  --color-tertiary: #10B981;
+  --color-light: #F8FAFC;
+  --color-dark: #1E293B;
+  --font-primary: 'Quicksand', sans-serif;
+}
+
+/*all reusable bg class*/
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-tertiary { background-color: var(--color-tertiary); }
+.bg-light { background-color: var(--color-light); }
+.bg-dark { background-color: var(--color-dark); }
+
+/*all reusable bg class*/
+.text-primary { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-tertiary { color: var(--color-tertiary); }
+.text-light { color: var(--color-light); }
+.text-dark { color: var(--color-dark); }
+
+/*font class*/
+.font-quicksand { font-family: var(--font-primary); }
