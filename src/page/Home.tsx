@@ -1,4 +1,4 @@
-import Button from "../components/Button";
+import Button from "../components/Button.tsx";
 import { getAsset } from "../utils/assets";
 
 function Home () {
@@ -8,9 +8,9 @@ function Home () {
     <>
       <div>
         <img className="w-50" src={homePhotos} alt="Home photo"/>
-        <h1>TaskFlow</h1>
+        <h1 className="">TaskFlow</h1>
         <h3>"Organize your task, keep your flow"</h3>
-        <Button text="Get started" className="bg-primary text-light hover:text-dark"/>
+        <Button text="Get started" className=""/>
       </div>
     </>
   )
