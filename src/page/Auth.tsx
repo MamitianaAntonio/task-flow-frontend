@@ -1,6 +1,6 @@
 function Auth () {
   return (
-    <h1>Welcome at Authetification page.</h1>
+    <h1 className="font-quicksand">Welcome at Authetification page.</h1>
   )
 }
 
