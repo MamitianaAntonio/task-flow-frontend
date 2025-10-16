@@ -1,13 +1,48 @@
+import { useState } from "react";
+import { clsx } from "clsx";
+
 interface ButtonProps {
   text: string;
+  bgColor?: string;
+  hoverColor?: string;
+  textColor?: string;
   onClick?: () => void;
   className?: string;
 }
 
-export default function Button({ text, onClick, className }: ButtonProps) {
+const colorMap: Record<string, string> = {
+  primary: "#3B82F6",
+  secondary: "#E081C1",
+  tertiary: "#10B981",
+  light: "#F8FAFC",
+  dark: "#1E293B",
+};
+
+export default function Button({
+  text,
+  bgColor = "primary",
+  hoverColor = "secondary",
+  textColor = "light",
+  onClick,
+  className,
+}: ButtonProps) {
+  const [isHover, setIsHover] = useState(false);
+  const normalBg = colorMap[bgColor] ?? bgColor;
+  const hoverBg = colorMap[hoverColor] ?? hoverColor;
+  const textCol = colorMap[textColor] ?? textColor;
+
   return (
     <button
-      className={`px-4 py-2 rounded-md cursor-pointer ${className}`}
+      className={clsx(
+        "px-4 py-2 rounded-md cursor-pointer transition-colors duration-300",
+        className
+      )}
+      style={{
+        backgroundColor: isHover ? hoverBg : normalBg,
+        color: textCol,
+      }}
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
       onClick={onClick}
     >
       {text}
