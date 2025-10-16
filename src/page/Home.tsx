@@ -4,6 +4,8 @@ import { getAsset } from "../utils/assets";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   const homePhotos = getAsset("home-photo.png");
@@ -42,7 +44,13 @@ function Home() {
           </h3>
           <Button
             text={
-              loading ? <ClipLoader size={20} color="#F8FAFC" /> : "Get started"
+              loading ? (
+                <ClipLoader size={20} color="#F8FAFC" />
+              ) : (
+                <span className="flex items-center gap-2">
+                  Get started <FontAwesomeIcon icon={faArrowRight} />
+                </span>
+              )
             }
             onClick={handleClick}
           />
