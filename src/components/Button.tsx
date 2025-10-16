@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { clsx } from "clsx";
 
 interface ButtonProps {
-  text: string;
+  text: React.ReactNode;
   bgColor?: string;
   hoverColor?: string;
   textColor?: string;
