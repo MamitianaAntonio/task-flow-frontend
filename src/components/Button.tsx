@@ -34,7 +34,7 @@ export default function Button({
   return (
     <button
       className={clsx(
-        "px-4 py-2 rounded-md cursor-pointer transition-colors duration-300",
+        "text-[16px] px-4 py-2 rounded-sm cursor-pointer transition-all duration-300 ease-in-out active:scale-90",
         className
       )}
       style={{
