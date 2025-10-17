@@ -3,10 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getAsset } from "../utils/assets";
 import "../styles/animations.css"
 import { useEffect, useState } from "react";
+import Login from "../components/Login";
+import Sign from "../components/Sign";
 
 function Auth() {
   const womenLeft = getAsset("women-left.png");
   const [ show, setShow ] = useState(false);
+  const [displayLogin, setDisplayLogin] = useState(false);
+
+  const toogleForm = () => setDisplayLogin(!displayLogin);
 
   useEffect(() => {
     setShow(true);
@@ -19,7 +24,8 @@ function Auth() {
           show ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="py-6 w-full bg-primary space-y-4 flex flex-col items-center justify-center">
+        {/* left side*/}
+        <div className="py-6 w-full bg-primary space-y-6 flex flex-col items-center justify-center">
           <FontAwesomeIcon icon={faStar} color="#E4FF5F" className="text-4xl" />
           <h1 className="font-quicksand text-4xl text-light text-center font-bold">
             Welcome to TaskFlow
@@ -37,8 +43,14 @@ function Auth() {
             className="w-[30vh] max-h-xs animate-float drop-shadow-xl transition-transform duration-700 ease-in-out hover:scale-105 hover:rotate-1"
           />
         </div>
+        {/**right side */}
         <div className="w-full">
           <h1>Right side</h1>
+          {displayLogin ? (
+            <Login switchForm={toogleForm} />
+          ) : (
+            <Sign switchForm={toogleForm} />
+          )}
         </div>
       </div>
     </>
