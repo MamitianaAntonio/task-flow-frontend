@@ -8,12 +8,12 @@ interface InputProps {
   className? : string
 }
 
-const Input : React.FC<InputProps> = ({
+const Input: React.FC<InputProps> = ({
   type = "text",
   placeholder = "",
   value,
   onChange,
-  className
+  className,
 }) => {
   return (
     <input
@@ -28,7 +28,7 @@ const Input : React.FC<InputProps> = ({
                   focus:outline-none focus:ring-2 focus:ring-blue-400 
                   transition-all duration-200 ${className}`}
     />
-  )
-}
+  );
+};
 
 export default Input;
