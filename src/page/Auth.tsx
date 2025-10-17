@@ -5,12 +5,13 @@ import "../styles/animations.css"
 import { useEffect, useState } from "react";
 import Login from "../components/Login";
 import Sign from "../components/Sign";
+import BackgroundParticles from "../components/BackgroundParticles.tsx";
 
 function Auth() {
   const womenLeft = getAsset("women-left.png");
+  const logo = getAsset("Logo.png");
   const [ show, setShow ] = useState(false);
   const [displayLogin, setDisplayLogin] = useState(false);
-
   const toogleForm = () => setDisplayLogin(!displayLogin);
 
   useEffect(() => {
@@ -25,7 +26,7 @@ function Auth() {
         }`}
       >
         {/* left side*/}
-        <div className="py-6 w-full bg-primary space-y-6 flex flex-col items-center justify-center">
+        <div className="py-6 w-full bg-primary space-y-6 flex flex-col items-center justify-center relative z-1000">
           <FontAwesomeIcon icon={faStar} color="#E4FF5F" className="text-4xl" />
           <h1 className="font-quicksand text-4xl text-light text-center font-bold">
             Welcome to TaskFlow
@@ -44,13 +45,22 @@ function Auth() {
           />
         </div>
         {/**right side */}
-        <div className="w-full">
-          <h1>Right side</h1>
-          {displayLogin ? (
-            <Login switchForm={toogleForm} />
-          ) : (
-            <Sign switchForm={toogleForm} />
-          )}
+        <div className="w-full flex flex-col items-center justify-center space-y-4">
+          <BackgroundParticles />
+          <img src={logo} alt="Logo" className="w-[7vw] relative z-1000" />
+          <div
+            className="mb-6 p-6 rounded-2xl border border-white/20 
+             bg-white/10 backdrop-blur-md 
+             shadow-lg shadow-blue-500/10 
+             hover:shadow-blue-500/20 
+             transition-all duration-300 ease-in-out"
+          >
+            {displayLogin ? (
+              <Login switchForm={toogleForm} />
+            ) : (
+              <Sign switchForm={toogleForm} />
+            )}
+          </div>
         </div>
       </div>
     </>
