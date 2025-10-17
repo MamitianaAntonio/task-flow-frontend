@@ -49,7 +49,7 @@ function Auth() {
           <BackgroundParticles />
           <img src={logo} alt="Logo" className="w-[7vw] relative z-1000" />
           <div
-            className="mb-6 p-6 rounded-2xl border border-white/20 
+            className="w-[20vw] mb-6 p-6 rounded-2xl border border-white/20 
              bg-white/10 backdrop-blur-md 
              shadow-lg shadow-blue-500/10 
              hover:shadow-blue-500/20 
