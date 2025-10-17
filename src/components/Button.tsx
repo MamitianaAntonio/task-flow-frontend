@@ -3,6 +3,7 @@ import { clsx } from "clsx";
 
 interface ButtonProps {
   text: React.ReactNode;
+  type?: "button" | "submit" | "reset";
   bgColor?: string;
   hoverColor?: string;
   textColor?: string;
@@ -20,6 +21,7 @@ const colorMap: Record<string, string> = {
 
 export default function Button({
   text,
+  type = "button",
   bgColor = "primary",
   hoverColor = "secondary",
   textColor = "light",
@@ -44,6 +46,7 @@ export default function Button({
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       onClick={onClick}
+      type={type}
     >
       {text}
     </button>
