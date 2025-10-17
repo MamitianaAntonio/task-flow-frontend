@@ -38,7 +38,7 @@ const ParticleBackground = () => {
       },
       particles: {
         color: {
-          value: ["#3B82F6", "#E081C1", "#10B981"],
+          value: ["#3B82F6", "#E081C1", "#10B981", "#C7B9FF"],
         },
         move: {
           direction: MoveDirection.none,
@@ -53,7 +53,7 @@ const ParticleBackground = () => {
         number: {
           value: 10,
           density: {
-            enable: true,
+            enable: false,
           },
         },
         opacity: {
@@ -64,7 +64,7 @@ const ParticleBackground = () => {
           type: "circle",
         },
         size: {
-          value: { min: 20, max: 40 },
+          value: { min: 5, max: 35 },
           animation: {
             enable: true,
             speed: 1,

@@ -24,7 +24,7 @@ function Home() {
 
   return (
     <>
-      <div className="relative flex flex-col items-center justify-between overflow-hidden w-full h-full min-h-screen scroll-smooth">
+      <div className="relative flex flex-col items-center justify-between overflow-hidden w-full h-full min-h-screen">
         <img
           src={homeLogo}
           alt="Logo image"
