@@ -26,7 +26,7 @@ function Auth() {
         }`}
       >
         {/* left side*/}
-        <div className="py-6 w-full bg-primary space-y-6 flex flex-col items-center justify-center relative z-1000">
+        <div className="py-6 w-full bg-primary p-4 space-y-6 flex flex-col items-center justify-center relative z-1000">
           <FontAwesomeIcon icon={faStar} color="#E4FF5F" className="text-4xl" />
           <h1 className="font-quicksand text-4xl text-light text-center font-bold">
             Welcome to TaskFlow
@@ -49,7 +49,7 @@ function Auth() {
           <BackgroundParticles />
           <img src={logo} alt="Logo" className="w-[7vw] relative z-1000" />
           <div
-            className="w-[20vw] mb-6 p-6 rounded-2xl border border-white/20 
+            className="w-[300px] lg:w-[50vh] mb-6 p-6 rounded-2xl border border-white/20 
              bg-white/10 backdrop-blur-md 
              shadow-lg shadow-blue-500/10 
              hover:shadow-blue-500/20 
