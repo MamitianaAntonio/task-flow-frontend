@@ -6,13 +6,22 @@ import { useEffect, useState } from "react";
 import Login from "../components/Login";
 import Sign from "../components/Sign";
 import BackgroundParticles from "../components/BackgroundParticles.tsx";
+import clsx from "clsx";
 
 function Auth() {
   const womenLeft = getAsset("women-left.png");
   const logo = getAsset("Logo.png");
   const [ show, setShow ] = useState(false);
-  const [displayLogin, setDisplayLogin] = useState(false);
-  const toogleForm = () => setDisplayLogin(!displayLogin);
+  const [displayLogin, setDisplayLogin] = useState(true);
+  const [ fade, setFade ] = useState(true);
+
+  const toogleForm = () => {
+    setFade(false);
+    setTimeout(()=> {
+      setDisplayLogin(!displayLogin)
+      setFade(true);
+    }, 300)
+  };
 
   useEffect(() => {
     setShow(true);
@@ -45,7 +54,7 @@ function Auth() {
           />
         </div>
         {/**right side */}
-        <div className="w-full flex flex-col items-center justify-center space-y-4">
+        <div className="relative w-full flex flex-col items-center justify-center space-y-4">
           <BackgroundParticles />
           <img src={logo} alt="Logo" className="w-[7vw] relative z-1000" />
           <div
@@ -55,11 +64,18 @@ function Auth() {
              hover:shadow-blue-500/20 
              transition-all duration-300 ease-in-out"
           >
-            {displayLogin ? (
-              <Login switchForm={toogleForm} />
-            ) : (
-              <Sign switchForm={toogleForm} />
-            )}
+            <div
+              className={clsx(
+                "transition-opacity duration-300 ease-in-out",
+                fade ? "opacity-100" : "opacity-0"
+              )}
+            >
+              {displayLogin ? (
+                <Login switchForm={toogleForm} />
+              ) : (
+                <Sign switchForm={toogleForm} />
+              )}
+            </div>
           </div>
         </div>
       </div>
