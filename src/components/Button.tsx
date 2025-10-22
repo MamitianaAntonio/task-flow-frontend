@@ -9,6 +9,7 @@ interface ButtonProps {
   textColor?: string;
   onClick?: () => void;
   className?: string;
+  disabled?: boolean;
 }
 
 const colorMap: Record<string, string> = {
@@ -27,6 +28,7 @@ export default function Button({
   textColor = "light",
   onClick,
   className,
+  disabled = false,
 }: ButtonProps) {
   const [isHover, setIsHover] = useState(false);
   const normalBg = colorMap[bgColor] ?? bgColor;
@@ -47,6 +49,7 @@ export default function Button({
       onMouseLeave={() => setIsHover(false)}
       onClick={onClick}
       type={type}
+      disabled={disabled}
     >
       {text}
     </button>
