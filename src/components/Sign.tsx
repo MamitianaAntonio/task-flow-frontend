@@ -5,6 +5,8 @@ import { useState } from "react";
 import { signUp } from "../services/auth.ts";
 import { ClipLoader } from "react-spinners";
 import toast from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackwardStep, faSignIn } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   switchForm: () => void;
@@ -22,7 +24,7 @@ const Sign: React.FC<Props> = ({ switchForm }) => {
     setIsLoading(true);
 
     if (!name || !email || !password || !confirmedPass) {
-      toast.error("All fiels is required")
+      toast.error("All fields is required")
       setIsLoading(false);
       return;
     }
@@ -98,8 +100,8 @@ const Sign: React.FC<Props> = ({ switchForm }) => {
                 isLoading ? (
                   <ClipLoader size={20} color="#F8FAFC" />
                 ) : (
-                  <span className="flex items-center justify-center">
-                    Sign In
+                  <span className="flex items-center justify-center gap-2">
+                    Sign In <FontAwesomeIcon icon={faSignIn} />
                   </span>
                 )
               }
@@ -109,7 +111,11 @@ const Sign: React.FC<Props> = ({ switchForm }) => {
               disabled={isLoading}
             />
             <Button
-              text="Go back to log in"
+              text={
+                <span>
+                  Go back to log in <FontAwesomeIcon icon={faBackwardStep} />
+                </span>
+              }
               type="button"
               bgColor="tertiary"
               hoverColor="secondary"
