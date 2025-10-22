@@ -18,18 +18,28 @@ export const signUp = async (data: SignUpData) => {
     const response = await axiosClient.post("/api/users/register", data);
 
     if (response.status === 201) {
-      toast.success(`User created successfully`);
+      toast.success("User created successfully");
       return { success: true, status: response.status };
-    } else if (response.status === 500) {
-      toast.error("Internal server error.");
-      return { success: false, status: response.status };
-    } else {
-      toast.error("Unexpected error.");
-      return { success: false, status: response.status };
     }
-  } catch (error) {
-    toast.error("Netword error");
-    return { success: false, status: 0 };
+
+    toast.error("Unexpected error.");
+    return { success: false, status: response.status };
+  } catch (error: any) {
+    const status = error.response?.status;
+    // verification on error
+    if (status === 400) {
+      toast.error("Invalid input data.");
+    } else if (status === 409) {
+      toast.error("User already exists.");
+    } else if (status === 500) {
+      toast.error("Internal server error.");
+    } else if (error.message === "Network Error") {
+      toast.error("Network error. Please check your connection.");
+    } else {
+      toast.error("Unexpected error occurred.");
+    }
+
+    return { success: false, status: status || 0 };
   }
 };
 
