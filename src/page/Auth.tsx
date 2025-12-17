@@ -1,7 +1,7 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getAsset } from "../utils/assets";
-import "../styles/animations.css"
+import "../styles/animations.css";
 import { useEffect, useState } from "react";
 import Login from "../components/Login";
 import Sign from "../components/Sign";
@@ -11,21 +11,21 @@ import clsx from "clsx";
 function Auth() {
   const womenLeft = getAsset("women-left.png");
   const logo = getAsset("Logo.png");
-  const [ show, setShow ] = useState(false);
+  const [show, setShow] = useState(false);
   const [displayLogin, setDisplayLogin] = useState(true);
-  const [ fade, setFade ] = useState(true);
+  const [fade, setFade] = useState(true);
 
   const toogleForm = () => {
     setFade(false);
-    setTimeout(()=> {
-      setDisplayLogin(!displayLogin)
+    setTimeout(() => {
+      setDisplayLogin(!displayLogin);
       setFade(true);
-    }, 300)
+    }, 300);
   };
 
   useEffect(() => {
     setShow(true);
-  }, [])
+  }, []);
 
   return (
     <>
@@ -58,16 +58,16 @@ function Auth() {
           <BackgroundParticles />
           <img src={logo} alt="Logo" className="w-[7vw] relative z-1000" />
           <div
-            className="w-[300px] lg:w-[50vh] mb-6 p-6 rounded-2xl border border-white/20 
-             bg-white/10 backdrop-blur-md 
-             shadow-lg shadow-blue-500/10 
-             hover:shadow-blue-500/20 
+            className="w-[300px] lg:w-[50vh] mb-6 p-6 rounded-2xl border border-white/20
+             bg-white/10 backdrop-blur-md
+             shadow-lg shadow-blue-500/10
+             hover:shadow-blue-500/20
              transition-all duration-300 ease-in-out"
           >
             <div
               className={clsx(
-                "transition-opacity duration-300 ease-in-out",
-                fade ? "opacity-100" : "opacity-0"
+                "w-auto transition-opacity duration-300 ease-in-out",
+                fade ? "opacity-100" : "opacity-0",
               )}
             >
               {displayLogin ? (
