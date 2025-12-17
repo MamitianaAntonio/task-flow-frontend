@@ -38,8 +38,8 @@ export default function Button({
   return (
     <button
       className={clsx(
-        "text-[16px] h-[2.5rem] px-4 py-2 rounded-sm cursor-pointer transition-all duration-300 ease-in-out font-quicksand font-bold active:scale-90",
-        className
+        "appearance-none border-none text-[1rem] h-[2.5rem] px-4 m-2 rounded-sm cursor-pointer transition-all duration-300 ease-in-out font-quicksand font-bold active:scale-90",
+        className,
       )}
       style={{
         backgroundColor: isHover ? hoverBg : normalBg,
